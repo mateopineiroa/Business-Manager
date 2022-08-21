@@ -5,17 +5,19 @@ import { useState } from "react"
 
 const Header = () => {
     const [state, setState] = useState(false)
+    const [user, setUser] = useState(false)
+    
     const handleClick = () => {
         setState(!state)
     }
-    const componente = (state) => {
+    const componente = () => {
+        
         if (state) {
-            console.log("Ahora muestro")
             return (
-                <Sidebar setState={setState} />
+                <Sidebar handleClick={handleClick} state={state} />
                 )
         } else {
-            
+            return
         }
     }
     
@@ -32,7 +34,9 @@ const Header = () => {
                     menu
                 </span>
             </div>
-            {componente(state)}
+
+            {/* {state && <Sidebar handleClick={handleClick} state={state} />}   Tambien se puede asi tho*/}
+            {componente()}
         </div>
     )
 }

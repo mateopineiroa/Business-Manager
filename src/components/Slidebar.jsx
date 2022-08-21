@@ -8,16 +8,15 @@ const Slidebar = () => {
 	
     let title = "p-3 text-4xl"
     let main = "mb-3 mx-3 pb-3 w-auto h-fit rounded-lg bg-slate-200"
-    // console.log("El status es",status)
-    // console.log("El tasks es",tasks)
+
 	const section = (slide) => {
         if (slide == "Status") {
             return (
-                    <Status props={slide == "Status" ? "block":"hidden"} main={main} title={title} />
+                    <Status main={main} title={title} />
                 )
             } else {
                 return (
-                    <Tasks props={slide == "Status" ? "hidden":"block"} main={main} title={title} />
+                    <Tasks main={main} title={title} />
                 )
             }
     }
@@ -42,7 +41,7 @@ const Slidebar = () => {
     }
 
     return (
-        <div>
+        <div className="w-full lg:w-[80vw] mx-auto">
             <div className=" my-3 mx-3 h-12 rounded-md bg-slate-400 border-spacing-3 flex flex-row align-middle justify-evenly">
                 <span
                     id="Status" 
@@ -59,7 +58,8 @@ const Slidebar = () => {
                     Tasks
                 </span>
             </div>
-            
+            {/* <div className="w-full h-20 hover:animation-sidebarIn bg-red-600"></div> */}
+
             {section(slide)}            {/* Forma correcta de hacer un toggle? */}
         </div>
     )

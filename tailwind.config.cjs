@@ -7,16 +7,11 @@ module.exports = {
         sidebarIn: {
           '0%': { transform: 'translateX(100%)' },
           '100%': { transform: 'translateX(0%)' },
-        },
-        sidebarOut: {
-          '0%': { transform: 'translateX(0%)' },
-          '100%': { transform: 'translateX(100%)' },
         }
       },
       animation: {
-        sidebarIn: 'sidebarIn 1s',
-        sidebarOut: 'sidebarOut 1s',
-      },
+        sidebarIn: 'sidebarIn .15s ease-out',
+      }
     },
   },
   plugins: [],

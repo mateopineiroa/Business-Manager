@@ -2,9 +2,10 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import AddTask from './addTask';
+import AddTask from './AddTask';
 import Backdrop from '@mui/material/Backdrop';
 import Fade from '@mui/material/Fade';
+import { useState } from 'react';
 
 
 const style = {
@@ -20,20 +21,22 @@ const style = {
 };
 
 
-const Task = ({title, description, index, taskStyles, prop}) => {
-
+const Task = ({title, description, index, taskStyles, prop, handleData}) => {
+    
     const [open, setOpen] = React.useState(false);
+
+    // handleData("hdsid")
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     
-    if (prop!="nuevaTask") {
+    if (prop!="nuevaTask" ) {
 
         return (
             <div className={taskStyles+"p-3"}>
-            <h2 className="text-xl">{index+") "+title}</h2>
-            <p>{"Description: "+ description}</p>
+                <h2 className="text-xl">{index+") "+title}</h2>
+                <p>{"Description: "+ description}</p>
             
-        </div>
+            </div>
     )
     } else {
         return (
@@ -60,13 +63,15 @@ const Task = ({title, description, index, taskStyles, prop}) => {
                     }}
                     >         
                     <Fade in={open} >
-
+                
                         <Box sx={style}>
                             <Typography id="modal-modal-title" variant="h6" component="h2">
-                                Add the task
+                                {/* <p className='mx-1'> */}
+                                    Add the task
+                                {/* </p> */}
                             </Typography>
+                            <AddTask handleData={handleData} />
                             <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                                <AddTask />
                             </Typography>
                         </Box>
                     </Fade>

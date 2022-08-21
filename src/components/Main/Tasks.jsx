@@ -1,26 +1,49 @@
 import Task from './sub-components/Task';
+import { useState, useEffect } from 'react';
 
 const Tasks = ({props, main, title}) => {
-    console.log(props)
-    let taskStyles = "w-auto h-18 m-3 rounded-lg bg-slate-50 "
     let arreglo = [{
-        title:"Cortar Pasto",
-        description:"Cortar el pasto y tirarlo en la basura. Acordarse de quitar ramas antes"
-    },
-    {
-        title:"Cortar pasto denuevo",
-        description:"Cortar el pasto y tirarlo en la basura denuevo. Simplemente para dejar claro que soy tu jefe"
-    }
-    ]
+            title:"Cortar Pasto",
+            description:"Cortar el pasto y tirarlo en la basura. Acordarse de quitar ramas antes"
+        },
+        {
+            title:"Cortar pasto denuevo",
+            description:"Cortar el pasto y tirarlo en la basura denuevo. Simplemente para dejar claro que soy tu jefe"
+        }
+    ] 
+    const [taskTitle, setTitle] = useState("")
+    const [taskDescription, setDescription] = useState("")
+    const [elementos, setElementos] = useState(arreglo)
+    let taskStyles = "w-auto h-18 m-3 rounded-lg bg-slate-50 "
     
+    // console.log(taskTitle, taskDescription)
+    const handleData = (titulo, descripcion) => {
+        setTitle(titulo)
+        setDescription(descripcion)
+        console.log(titulo, descripcion)
+        console.log(taskTitle, taskDescription)
+        
+        setElementos(array => [...array, {
+            title:titulo,
+            description:titulo
+        }])
+        console.log(elementos)
+    }
+    
+    useEffect(() => {
+        
+    },[elementos])
 
+    console.log(elementos)
     let elements = arreglo.map((element, index) => {
             return (
                 <Task 
                     title={element.title} 
                     description={element.description} 
-                    index={index+1} 
-                    taskStyles={taskStyles} />
+                    index={index+1}
+                    key={index}                         //Each component has to have a key prop that is not a prop(?)
+                    taskStyles={taskStyles} 
+                    />
             )
         })
     
@@ -28,8 +51,8 @@ const Tasks = ({props, main, title}) => {
         <div className={props}>
             <div className={main}>        {/* props==="active"?"hidden":"block" */}
                 <h2 className={title}>Tasks remaining...</h2>
-                <Task prop="nuevaTask" taskStyles={taskStyles} />
-                {elements}
+                <Task prop="nuevaTask" taskStyles={taskStyles} handleData={handleData} />
+                {elements?elements:""}
             </div>
 
         </div>
