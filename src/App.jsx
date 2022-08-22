@@ -7,7 +7,8 @@ function App() {
   /* First-time user guide. Not show again button and control with local-storage */
   /* The app will have a default version for first look and a log in for modifying functionalities. */
   /*It will have a mongoose and node backend for managing the tasks and employees of a user. */
-
+  
+  /* Store data in local storage for more speed (?) */
 
 
   return (

@@ -2,6 +2,11 @@ import Task from './sub-components/Task';
 import { useState, useEffect } from 'react';
 
 const Tasks = ({props, main, title}) => {
+
+    /* UseEffect for update tasks from localstorage and mongoose db */
+
+
+
     let arreglo = [{
             title:"Cortar Pasto",
             description:"Cortar el pasto y tirarlo en la basura. Acordarse de quitar ramas antes"

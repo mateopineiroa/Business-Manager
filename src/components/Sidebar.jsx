@@ -23,28 +23,32 @@ const Slidebar = ({handleClick, state}) => {
 
     return (
         <div id="animate" className={` absolute m-0 p-0 left-0 box-border top-0 h-screen w-full overflow-hidden flex`}>
-            <div className="w-full h-full backdrop-blur-sm" onClick={handleClick}></div>
-            <div  className={`${state? "animate-sidebarIn":""} bg-slate-100 absolute right-0 top-20 m-4 p-4 pb-10 rounded-md w-[400px] h-fit`}>
-                <div className="flex flex-row-reverse">
-                    <span onClick={handleClick} className="inline right-0 material-symbols-outlined cursor-pointer">
-                    close
-                    </span>
-                </div>
+            <div className="w-full h-full absolute backdrop-blur-sm" onClick={handleClick}></div>
+            <div className="absolute right-0 w-full top-24 p-0 flex flex-row-reverse">
+                <div className="w-full h-full absolute " onClick={handleClick}></div>
 
-                <button className={boton}>
-                    Proyects                            {/* Desplegar las opciones en la sidebar(?) */}
-                </button>
-                <button className={boton}>
-                    Account                                {/* move to account component(?) Account component with "edit profile" option */}
-                </button>
-                <button className={boton}>
-                    Settings                                 {/* App and account settings */}
-                </button>
-                {/* Functionalities */}
-                {/* Proyects(?) */}
-                {/* Employers(?) */}
-                {/* App Settings(?) */}
-                {/* Account(?) */}
+                <div  className={`${state? "animate-sidebarIn":""} bg-slate-100 relative right-0 mr-4 ml-4 p-4 pb-10 rounded-md md:w-[400px] w-full h-fit`}>
+                    <div className="flex flex-row-reverse">
+                        <span onClick={handleClick} className="inline right-0 material-symbols-outlined cursor-pointer">
+                        close
+                        </span>
+                    </div>
+
+                    <button className={boton}>
+                        Proyects                            {/* Desplegar las opciones en la sidebar(?) */}
+                    </button>
+                    <button className={boton}>
+                        Account                                {/* move to account component(?) Account component with "edit profile" option */}
+                    </button>
+                    <button className={boton}>
+                        Settings                                 {/* App and account settings */}
+                    </button>
+                    {/* Functionalities */}
+                    {/* Proyects(?) */}
+                    {/* Employers(?) */}
+                    {/* App Settings(?) */}
+                    {/* Account(?) */}
+                </div>
             </div>
             
         </div>
