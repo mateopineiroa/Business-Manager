@@ -13,7 +13,7 @@ const Tasks = ({props, main, title}) => {
         },
         {
             title:"Cortar pasto denuevo",
-            description:"Cortar el pasto y tirarlo en la basura denuevo. Simplemente para dejar claro que soy tu jefe"
+            description:"Cortar el pasto y tirarlo en la basura denuevo."
         }
     ] 
     const [taskTitle, setTitle] = useState("")
